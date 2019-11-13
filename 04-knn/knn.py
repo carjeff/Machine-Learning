@@ -4,10 +4,11 @@ import pandas as pd
 import numpy as np
 from classifier import KNNClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.neighbors import KDTree
 
 
 def load_data():
-    dataset = load_iris()
+    dataset = load_breast_cancer()
     X, y = pd.DataFrame(dataset.data), pd.Series(dataset.target)
     X.columns = dataset.feature_names
     X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=True)
